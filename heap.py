@@ -110,11 +110,9 @@ class MinHeap(Heap):
     def _heapify_down(self) -> None:
         current_index = 0
         while self._has_left_child(current_index):
-            if self._has_right_child(current_index):
-                if self._get_left_child(current_index) > self._get_right_child(current_index):
-                    smaller_child_index = self._get_right_child_index(current_index)
-                else:
-                    smaller_child_index = self._get_left_child_index(current_index)
+            if self._has_right_child(current_index) and\
+                self._get_left_child(current_index) > self._get_right_child(current_index):
+                smaller_child_index = self._get_right_child_index(current_index)
             else:
                 smaller_child_index = self._get_left_child_index(current_index)
 
@@ -144,11 +142,9 @@ class MaxHeap(Heap):
     def _heapify_down(self) -> None:
         current_index = 0
         while self._has_left_child(current_index):
-            if self._has_right_child(current_index):
-                if self._get_left_child(current_index) < self._get_right_child(current_index):
-                    larger_child_index = self._get_right_child_index(current_index)
-                else:
-                    larger_child_index = self._get_left_child_index(current_index)
+            if self._has_right_child(current_index) and\
+                self._get_left_child(current_index) < self._get_right_child(current_index):
+                larger_child_index = self._get_right_child_index(current_index)
             else:
                 larger_child_index = self._get_left_child_index(current_index)
 
@@ -162,7 +158,7 @@ class MaxHeap(Heap):
 
 if __name__ == '__main__':
     import random
-    test = MinHeap()
+    test = MaxHeap()
     test_data = [i for i in range(100)]
     random.shuffle(test_data)
     for i in test_data:
