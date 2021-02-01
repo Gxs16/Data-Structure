@@ -159,7 +159,7 @@ class MaxHeap(Heap):
 if __name__ == '__main__':
     import random
     test = MaxHeap()
-    test_data = [i for i in range(100)]
+    test_data = list(range(100))
     random.shuffle(test_data)
     for i in test_data:
         test.insert(i)
